@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id=container>
+        <div id="name-container">
+            <div id="instructions">
+                <h1>Instructions</h1>
+                1. This quiz is based on India and it's geography.<br>
+                2. The quiz contains 10 questions<br>
+                3. Questions are of Multiple Choice. <br>
+                4. Each question carries one mark. No negative marking for wrong answers.<br>
+                5. You can reattempt the quiz as many times as you want.<br>
+                6. To start the quiz, kindly enter your name below, and click on Start button.
+            </div>
+            <br>
+            <label for="yourName">Enter your name: </label>
+            <input type="text" id="yourName">
+            <br><br><br><br>
+            <input type="checkbox" id="check">
+            <label for="check">I have read all the instructions carefully and shall be abide to them.</label>
+            <br>
+            <button id="startbtn" class="btn">Start</button>
+        </div>
+        <div id="quiz-container" class="">
+            <div id="question">Questions come here</div>
+            <div id="options">
+                <input type="radio" name="option" id="option1" class="opt" value="option1"> 
+                <label for="option1" id="opt1">Answer Option 1</label><br>
+    
+                <input type="radio" name="option" id="option2" class="opt" value="option2">
+                <label for="option2" id="opt2">Answer Option 2</label><br>
+    
+                <input type="radio" name="option" id="option3" class="opt" value="option3">
+                <label for="option3" id="opt3">Answer Option 3</label><br>
+    
+                <input type="radio" name="option" id="option4" class="opt" value="option4">
+                <label for="option4" id="opt4">Answer Option 4</label><br>
+            </div>
+            <div class="controls">
+                <button id="prevbtn" class="btn">Prev</button>
+                <button id="nextbtn" class="btn">Next</button>
+            </div>
+            <div id="alertQue"></div>
+            <div id="submit">
+                <button id="submitbtn" class="btn">Submit</button>
+            </div>
+        </div>
+        <div id="score-container">
+            <div id="score-card"></div>
+            <button id="restartbtn" class="btn">Restart</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
