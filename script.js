@@ -184,7 +184,6 @@ nextbtn.addEventListener('click', () => {
     correctAns = quizDB[questionCount - 1].ans;
     for (let i = 0; i < opt.length; i++) {
         if (opt[i].checked) {
-            console.log(opt[i].value);
             checkedAns = opt[i].value;
         }
     }
