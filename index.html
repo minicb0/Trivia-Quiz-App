@@ -18,8 +18,10 @@
                 2. The quiz contains 10 questions<br>
                 3. Questions are of Multiple Choice. <br>
                 4. Each question carries one mark. No negative marking for wrong answers.<br>
-                5. You can reattempt the quiz as many times as you want.<br>
-                6. To start the quiz, kindly enter your name below, and click on Start button.
+                5. You have <strong>2 minutes</strong> to attempt all the questions. After that, it will automatically get submitted.<br>
+                6. You can navigate within the questions anytime. <br>
+                7. You can reattempt the quiz as many times as you want.<br>
+                8. To start the quiz, kindly enter your name below, and click on Start button.
             </div>
             <br>
             <label for="yourName">Enter your name: </label>
@@ -31,7 +33,8 @@
             <button id="startbtn" class="btn">Start</button>
         </div>
         <div id="quiz-container" class="">
-            <div id="question">Questions come here</div>
+            <div id="timer">Total Time Left - 02:00</div>
+            <div id="question">Question come here</div>
             <div id="options">
                 <input type="radio" name="option" id="option1" class="opt" value="option1"> 
                 <label for="option1" id="opt1">Answer Option 1</label><br>
@@ -53,14 +56,26 @@
             <div id="submit">
                 <button id="submitbtn" class="btn">Submit</button>
             </div>
+            <hr>
+            <div>
+                <div class="qindex"> <button class="qindex-btn" id="q0">1</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q1">2</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q2">3</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q3">4</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q4">5</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q5">6</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q6">7</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q7">8</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q8">9</button> </div>
+                <div class="qindex"> <button class="qindex-btn" id="q9">10</button></div>
+            </div>
         </div>
         <div id="score-container">
             <div id="score-card"></div>
             <button id="restartbtn" class="btn">Restart</button>
         </div>
     </div>
-    
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>

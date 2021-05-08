@@ -10,10 +10,10 @@ body {
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    font-size: 20px;
+    font-size: 20px; 
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 #container {
@@ -111,4 +111,39 @@ input[type=text] {
 
 #score-container {
     margin: 5px;
+}
+
+.qindex {
+    display: inline;
+}
+
+.qindex-btn{
+    height: 40px;
+    width: 40px;
+    background-color: #cac9c9; 
+    border: 1px solid rgb(70, 70, 70);
+    border-radius: 50%;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.qindex-btn:hover{
+    filter: brightness(70%);
+    cursor: pointer;
+    border: 1px solid black;
+    font-size: 105%;
+}
+
+.green {
+    background-color: rgb(80, 252, 80);
+}
+
+#timer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 30px;
+    background-color: rgb(48, 48, 48);
+    color: rgb(247, 37, 37);
+    padding: 5px;
 }

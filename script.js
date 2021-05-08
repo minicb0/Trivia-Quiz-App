@@ -96,6 +96,8 @@ const check = document.querySelector('#check');
 
 const scoreCard = document.querySelector('#score-card');
 
+const countdownTimer = document.querySelector("#timer")
+
 const instructions = document.getElementById('instructions');
 const alertQue = document.getElementById('alertQue');
 
@@ -113,6 +115,7 @@ let score = 0;
 let checkedAns;
 let correctAns;
 var yourName;
+var totalTime = 120;
 
 // at the start page
 quizContainer.classList.add('hide');
@@ -132,7 +135,8 @@ check.addEventListener('change', () => {
 startbtn.addEventListener('click', () => {
     nameContainer.classList.add('hide');
     quizContainer.classList.remove('hide');
-    yourName = document.getElementById("yourName").value
+    yourName = document.getElementById("yourName").value;
+    startTimer(totalTime);
     loadQuestion();
 })
 
@@ -170,8 +174,9 @@ prevbtn.addEventListener('click', () => {
     loadQuestion();
 
     //Unchecking all radio buttons for prev question
-    for(var i=0;i<opt.length;i++)
-       opt[i].checked = false;
+    for (var i = 0; i < opt.length; i++) {
+        opt[i].checked = false;
+    }
 })
 
 nextbtn.addEventListener('click', () => {
@@ -191,14 +196,22 @@ nextbtn.addEventListener('click', () => {
         score++;
     }
 
+    //color coding of green when attempting the question
+    for (let i = 0; i < opt.length; i++) {
+        if (opt[i].checked) {
+            document.getElementById('q' + (questionCount - 1)).classList.add("green");
+        }
+    }
+
     //Unchecking all radio buttons for next question
-    for(var i=0;i<opt.length;i++)
-       opt[i].checked = false;
+    for (var i = 0; i < opt.length; i++) {
+        opt[i].checked = false;
+    }
 })
 
 // clcicking on submit button, shows score
 submitbtn.addEventListener('click', () => {
-    
+
     //score counting
     for (let i = 0; i < opt.length; i++) {
         if (opt[i].checked) {
@@ -219,3 +232,47 @@ submitbtn.addEventListener('click', () => {
 restartbtn.addEventListener('click', () => {
     location.reload();
 })
+
+//question navigator
+for (let j = 0; j < quizDB.length; j++) {
+    document.querySelector('#q' + j).addEventListener('click', () => {
+        questionCount = j;
+
+        //Unchecking all radio buttons for current question
+        for (var i = 0; i < opt.length; i++) {
+            opt[i].checked = false;
+        }
+        loadQuestion();
+    })
+}
+
+//countdown Timer
+function startTimer(time) {
+    counter = setInterval(timer, 1000);
+    function timer() {
+        let seconds = time % 60
+        let minutes = Math.floor(time / 60);
+        time--;
+
+        //shows 09 instead 9 seconds and minutes
+        if (seconds < 10) {
+            seconds = "0" + seconds
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes
+        }
+        //clear interval after time reaches 0
+        if (time <= 0) {
+            clearInterval(counter);
+        }
+
+        countdownTimer.innerHTML = "Total Time Left - " + minutes + ":" + seconds;
+
+        //show the scoreboard once time is over
+        if (time == 0) {
+            quizContainer.classList.add('hide');
+            scoreContainer.classList.remove('hide');
+            scoreCard.innerHTML = "Hello " + yourName + " !<strong> You went out of time! So the quiz was automatically submitted.</strong><br>Congratulations🎉! You have successfully finished the quiz!  <br><br> You have scored <strong>" + score + " marks out of " + quizDB.length + "</strong> <br><br><br> To reattempt the Quiz, click on Restart. ";
+        }
+    }
+}
